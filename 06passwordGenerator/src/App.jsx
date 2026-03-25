@@ -2,12 +2,21 @@ import { useState,useCallback,useEffect,useRef } from 'react'
 import './App.css'
 
 function App() {
+
+  /*
+  length → password length (default = 8)
+  numberAllowed → include numbers or not
+  CharacterAllowed → include special characters
+  password → generated password
+  */ 
   const [length,setLength] = useState(8);
   const [numberAllowed,SetNumberAllowed] = useState(false);
   const [CharacterAllowed,setCharacterAllowed] = useState(false);
   const [password,setpassword] = useState("");
 
   //useRef hook variable
+  //This connects to your input box:
+  //Now you can directly access the DOM like <input ref={passwordRef} />
   const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback(()=>{
@@ -64,6 +73,7 @@ function App() {
                />
                <label>Length:{length}</label>
             </div>
+            
             <div className='flex items-center gap-x-1'>
                 <input
                       type="checkbox"
